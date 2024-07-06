@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+        font-family: 'Raleway', sans-serif;
+        background: linear-gradient(to right, #333399, #ff00cc);
+        {% comment %} background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%); {% endcomment %}
+        color: #fff;
+        text-align: center;
+      }
+
+      .bg-gradient {
+        background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+        backdrop-filter: blur(10px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      .form-container {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 600px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-control {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #fff;
+        padding: 10px;
+        margin: 5px 0;
+        width: calc(100% - 10px);
+      }
+      .form-control::placeholder {
+        color: #ddd;
+      }
+    </style>
+
+    <title>Update Student Record</title>
+</head>
+<body>
+    {% include "navbar.html" %}
+   
+    <div class="bg-gradient">
+        <div class="form-container">
+          <h2 class="text-center mb-4">Update Student Details</h2>
+          <form action="/update/{{student.id}}" method="post"> 
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="Name">Name : </label>
+              <input type="text" class="form-control " name="name" value="{{student.name}}" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control" name="age" value="{{student.age}}" placeholder="Age">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" value="{{student.email}}" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control" name="phone" value="{{student.phone}}" placeholder="Phone">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="address" rows="3" placeholder="Address">{{student.address}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-custom w-100 mt-3 btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+      {% include "footer.html" %}
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+   </body>
+</html>

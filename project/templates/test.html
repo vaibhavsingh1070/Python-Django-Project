@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Django Curd Project</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Gill Sans", sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    /* NAVBAR STYLING STARTS */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #000;
+      backdrop-filter: blur(10px);
+      color: #fff;
+    }
+
+    .nav-links a {
+      color: #fff;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* LOGO */
+    .logo {
+      font-size: 32px;
+    }
+
+    /* NAVBAR MENU */
+    .menu {
+      display: flex;
+      gap: 1em;
+      font-size: 18px;
+    }
+
+    .menu li:hover {
+      background-color: rgba(76, 158, 158, 0.7);
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+
+    .menu li {
+      padding: 5px 14px;
+    }
+
+
+    /* RESPONSIVE NAVBAR MENU STARTS */
+    /* CHECKBOX HACK */
+    input[type=checkbox] {
+      display: none;
+    } 
+
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      user-select: none;
+    }
+
+    /* APPLYING MEDIA QUERIES */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        position: absolute;
+        background-color: rgba(0, 128, 128, 0.7);
+        backdrop-filter: blur(10px);
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+      }
+
+      .menu li:hover {
+        display: inline-block;
+        background-color: rgba(76, 158, 158, 0.7);
+        transition: 0.3s ease;
+      }
+
+      .menu li + li {
+        margin-top: 12px;
+      }
+
+      input[type=checkbox]:checked ~ .menu {
+        display: block;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .dropdown {
+        left: 50%;
+        top: 30px;
+        transform: translateX(35%);
+      }
+
+      .dropdown li:hover {
+        background-color: rgba(76, 158, 158, 0.7);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <!-- LOGO -->
+    <div class="logo">Django</div>
+
+    <!-- NAVIGATION MENU -->
+    <ul class="nav-links">
+      <!-- USING CHECKBOX HACK -->
+      <input type="checkbox" id="checkbox_toggle" />
+      <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+      <!-- NAVIGATION MENUS -->
+      <div class="menu">
+        <li><a href="http://127.0.0.1:8000">Home</a></li>
+        <li><a href="http://127.0.0.1:8000/create">Create</a></li>
+        <li><a href="http://127.0.0.1:8000/updatepage">Update</a></li>
+        <li><a href="http://127.0.0.1:8000/deletepage">Delete</a></li>
+      </div>
+    </ul>
+  </nav>
+</body>
+</html>

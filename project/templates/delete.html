@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete your data</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Raleway", sans-serif;
+        background: linear-gradient(to right, #333399, #ff00cc);
+        color: #fff;
+        text-align: center;
+      }
+
+      .bg-gradient {
+        background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+        backdrop-filter: blur(10px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      .form-container {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 600px;
+        color: #fff;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      form h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .form-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .form-group p {
+        flex: 1;
+        text-align: left;
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .form-group input {
+        flex: 2;
+        background: rgba(255, 255, 255, 0);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 5px;
+      }
+
+      .form-group input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .form-group input:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      .form-group input:-webkit-autofill,
+      .form-group input:-webkit-autofill:hover,
+      .form-group input:-webkit-autofill:focus,
+      .form-group input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset !important;
+        -webkit-text-fill-color: #fff !important;
+      }
+
+      .form-group textarea {
+        flex: 2;
+        background: rgba(255, 255, 255, 0); /* Transparent background */
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 5px;
+        resize: none; /* Prevent resizing */
+      }
+      
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      
+      .form-group textarea:focus {
+        background-color: rgba(255, 255, 255, 0); /* Ensure background remains transparent on focus */
+        outline: none;
+        box-shadow: none;
+      }
+      
+      .form-group textarea:-webkit-autofill,
+      .form-group textarea:-webkit-autofill:hover,
+      .form-group textarea:-webkit-autofill:focus,
+      .form-group textarea:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset !important;
+        -webkit-text-fill-color: #fff !important;
+      }
+      
+      .btn-custom {
+        background-color: #fff;
+        color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        font-weight: bold;
+        width: 100%%;
+        border: none;
+        padding: 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .btn-custom:hover {
+        background-color: rgba(255, 8, 8, 0.87);
+      }
+      
+      .btn-custom::before {
+        content: "Are you sure?";
+        position: absolute;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.8s ease;
+        color: #fff;
+      }
+      
+      .btn-custom:hover::before {
+        left: 0;
+      }
+      
+      .btn-custom span {
+        display: inline-block;
+        width: 100%;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        text-align: center;
+      }
+      
+      .btn-custom:hover span {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    <div class="bg-gradient">
+      <div class="form-container">
+        <h2 class="text-center mb-4">Delete Student Details</h2>
+        <form action="/delete/{{student.id}}"  Delete>
+            {% csrf_token %}
+          <div class="form-group">
+            <p>Name<span>*</span></p>
+            <input type="text" name="name"  value="{{student.name}}" placeholder="Name" />
+          </div>
+
+          <div class="form-group">
+            <p>Age <span>*</span></p>
+            <input type="number" name="age" value="{{student.age}}" placeholder="Age"/>
+          </div>
+
+          <div class="form-group">
+            <p>E-mail <span>*</span></p>
+            <input type="email" name="email" value="{{student.email}}" placeholder="Email" />
+          </div>
+
+          <div class="form-group">
+            <p>Phone <span>*</span></p>
+            <input type="text" name="phone" value="{{student.phone}}" placeholder="Phone" />
+          </div>
+
+          <div class="form-group">
+            <p>Address <span>*</span></p>
+            <textarea class="form-control" name="address" rows="3" placeholder="Address">{{student.address}}</textarea>
+          </div>
+          <button class="btn-custom"><span>Proceed</span></button>
+        </form>
+      </div>
+    </div>
+    {% include "footer.html" %}
+  </body>
+</html>
+

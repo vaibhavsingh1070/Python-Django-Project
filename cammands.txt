@@ -1,0 +1,21 @@
+cammands used in Django Project
+
+1. djangob startproject project //creates a project with name 'project'
+2. python manage.py runserver //used to run the project
+3. Starting development server at http://127.0.0.1:8000/ //here it starts
+4. python manage.py startapp app //created a app in django project with name 'app'
+5. after updating models.py run this cammand 
+    python manage.py migrate
+    python manage.py makemigrations
+6. login as admin in django  http://127.0.0.1:8000/admin
+7. we have to create credentials inside terminal
+    python manage.py createsuperuser
+    username : vaibhav
+    email : vaibhav1070@gmail.com
+    password: 123
+8. To store data in database we have to import app model to app admin.py
+
+9. For update and delete operations we have to give path with id and 
+10 . for update the html will be same as create but here value will come to display existing data
+11. and to display messages we have to import messages django pack in the settings.py file at the end 
+12 . IN index.html page we have added bootstrap code also for displaying messages

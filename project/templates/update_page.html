@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Your Data</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.6/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #333399, #ff00cc);
+            color: #fff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            align-items: center;
+            height: 100vh;
+        }
+
+         .cont{
+            width: 600px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            algn-items: center;
+            margin-left: 28%;
+         }
+
+         .bg-gradient{
+            height: 100%;
+             backdrop-filter: blur(10px);
+             color: #fff;
+           }
+           
+         form{
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+         }
+        h2 {
+            margin-bottom: 20px;
+            padding: 20px;
+            color: #fff;
+            text-align: center; /* Center align h2 */
+        }
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+        .form-label {
+            color: #fff;
+        }
+        .btn {
+            background-color: #4caf50; /* Green button color */
+            border: none;
+        }
+        .btn:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div class="bg-gradient">
+    <div class="cont">
+        <h2>Update Your Data</h2>
+        {% if messages %}
+        <div class="error">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form method="post" action="updatepage">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="userId" class="form-label text-black">User ID:</label>
+                <input type="text" class="form-control" id="userId" name="userId" placeholder="Enter your user ID here..." required>
+            </div>
+            <button type="submit" class="btn w-100 btn-success">Search</button>
+        </form>
+    </div>
+</div>
+    {% include "footer.html" %}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.6/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

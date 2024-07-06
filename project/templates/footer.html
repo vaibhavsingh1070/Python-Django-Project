@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.6/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .footer {
+            {% comment %} background: transparent;{% endcomment %}
+            background-color: rgba(0, 0, 0, 0.15); 
+            {% comment %} background-color: #1f1c2c; {% endcomment %}
+            color: #fff;
+            padding: 40px 0;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #ffd700;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5em;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+        .footer p, .footer h5 {
+            margin-bottom: 15px;
+        }
+        .footer .footer-info, .footer .footer-contact, .footer .footer-project {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing content -->
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-info">
+                    <h5>About Django</h5>
+                    <p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel.</p>
+                </div>
+                <div class="col-md-4 footer-contact">
+                    <h5>Contact Us</h5>
+                    <p>For any queries related to this CRUD project, please feel free to reach out:</p>
+                    <p>Email: <a href="mailto:vaibhav@example.com">vaibhavsingh1070@gmail.com</a></p>
+                </div>
+                <div class="col-md-4 footer-project">
+                    <h5>About This Project</h5>
+                    <p>This project is a CRUD application built using the Django framework. It allows users to create, read, update, and delete records efficiently. Developed with the aim to demonstrate the capabilities of Django in building robust web applications.</p>
+                </div>
+            </div>
+            <div class="social-icons text-center mt-3">
+                <a href="https://www.instagram.com/_vaibhav_singh_10_/" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="https://www.linkedin.com/in/vaibhav-singh-l1070/" class="fa fa-linkedin"></a>
+                <a href="https://github.com/vaibhavsingh1070" class="fa fa-github"></a>
+                <a href="https://t.ly/KWcu5" class="fa fa-whatsapp"></a>
+            </div>
+            <p class="text-center mt-3">© 2024 Vaibhav Singh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.6/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
